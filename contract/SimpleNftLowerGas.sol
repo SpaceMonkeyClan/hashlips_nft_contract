@@ -27,19 +27,19 @@ contract SimpleNftLowerGas is ERC721, Ownable {
 
   Counters.Counter private supply;
 
-  string public uriPrefix = "";
+  string public uriPrefix = "ipfs://Qmd1MJWnMNoahueoAgGohjbwKaRPqSG3CNHctdSZRw9uSU/"; // changedds
   string public uriSuffix = ".json";
   string public hiddenMetadataUri;
   
   uint256 public cost = 0.01 ether;
-  uint256 public maxSupply = 10000;
-  uint256 public maxMintAmountPerTx = 5;
+  uint256 public maxSupply = 1201; //changedd
+  uint256 public maxMintAmountPerTx = 30; //Max mint per transaction
 
-  bool public paused = true;
-  bool public revealed = false;
+  bool public paused = false;
+  bool public revealed = true;
 
-  constructor() ERC721("NAME", "SYMBOL") {
-    setHiddenMetadataUri("ipfs://__CID__/hidden.json");
+  constructor() ERC721("Zombie Baby Chimps", "ZBC") {
+    setHiddenMetadataUri("ipfs://Qmd1MJWnMNoahueoAgGohjbwKaRPqSG3CNHctdSZRw9uSU/1.json");
   }
 
   modifier mintCompliance(uint256 _mintAmount) {
@@ -142,8 +142,8 @@ contract SimpleNftLowerGas is ERC721, Ownable {
     // This will pay HashLips 5% of the initial sale.
     // You can remove this if you want, or keep it in to support HashLips and his channel.
     // =============================================================================
-    (bool hs, ) = payable(0x943590A42C27D08e3744202c4Ae5eD55c2dE240D).call{value: address(this).balance * 5 / 100}("");
-    require(hs);
+    //(bool hs, ) = payable(0x943590A42C27D08e3744202c4Ae5eD55c2dE240D).call{value: address(this).balance * 5 / 100}("");
+    //require(hs);
     // =============================================================================
 
     // This will transfer the remaining contract balance to the owner.
